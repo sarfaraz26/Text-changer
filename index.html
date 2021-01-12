@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <br><br><br><br><br><br><br><br><br>
+        <h1>Hello, My name is Ansari Sarfaraz</h1>
+        <h1>I am a&nbsp;<span id="profession"></span><span id="blink">|</span></h1>
+        <h2>People Joined : <span id="num"></span></h2>
+    </center>
+</body>
+
+<script>
+    const profession = ['Student','Computer Engineer','Software Engineer','Full Stack Developer','Backend Developer','Frontend Developer','Data Scientist'];
+
+    let count = 0;
+    let counter = 0;
+    let value = true;
+    let numb = document.getElementById('num');
+    
+    let profText = document.getElementById('profession');
+    profText.textContent = profession[count];
+    profText.style.color = "red";
+
+
+    let blink = document.getElementById('blink');
+    
+    function profChange()
+    {
+            count++;
+            profText.textContent = profession[count];
+
+            if(count == profession.length)
+            {
+                count = 0;
+                profText.textContent = profession[count];
+            }
+    }
+
+    function blinkk()
+    {
+
+
+        if(value)
+        {
+            blink.style.opacity = 0;
+            value = false;
+        }
+        else
+        {
+            blink.style.opacity = 1;
+            value = true;
+        }
+    }
+
+    function increase()
+    {
+        counter=counter+10;
+        numb.innerHTML=counter;
+
+        if(counter==1000)
+        {
+            clearInterval(hold);
+        }
+    }
+
+    setInterval(profChange,1000);
+    setInterval(blinkk,400);
+
+    let hold = setInterval(increase,10);
+</script>
+</html>
